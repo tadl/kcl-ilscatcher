@@ -9,7 +9,7 @@ before_filter :set_headers
     end  
 
     def load_app_variables
-        @default_loc = '22'
+        @default_loc = '44'
         @opac_base_url = 'https://mr.tadl.org'
         @domain = 'mr.tadl.org'
     end
