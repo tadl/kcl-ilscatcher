@@ -63,7 +63,8 @@ class AccountController < ApplicationController
     agent = request[0]
     page = request[1]
     form = page.forms[1]
-    if (user =~ /^TADL\d{7,8}$|^90\d{5}$|^91111\d{9}$|^[a-zA-Z]\d{10}/ )
+#    if (user =~ /^TADL\d{7,8}$|^90\d{5}$|^91111\d{9}$|^[a-zA-Z]\d{10}/ )
+    if (user =~ /^90247\d{9}/ )
       form.field_with(:name => "barcode").value = user
     else
       form.field_with(:name => "username").value = user
