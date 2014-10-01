@@ -7,6 +7,8 @@ require 'dalli'
 
 main = JSON.parse(open("https://spreadsheets.google.com/feeds/list/14X5XDcKOEopBEuVwbrGs8ZLJn4ICfsCjtXpAInnk6Rw/od6/public/values?alt=json").read)
 
-Rails.cache.write("locations", main)
+locations = [main]
+
+Rails.cache.write("locations", locations)
 
 end
