@@ -5,7 +5,7 @@ require 'open-uri'
 require 'memcachier'
 require 'dalli'
 
-main = JSON.parse(open("https://spreadsheets.google.com/feeds/list/14X5XDcKOEopBEuVwbrGs8ZLJn4ICfsCjtXpAInnk6Rw/od6/public/values?alt=json").read)['locations']['feed']
+main = JSON.parse(open("https://spreadsheets.google.com/feeds/list/14X5XDcKOEopBEuVwbrGs8ZLJn4ICfsCjtXpAInnk6Rw/od6/public/values?alt=json").read)
 
 locations = main
 
