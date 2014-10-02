@@ -5,10 +5,20 @@ require 'open-uri'
 require 'memcachier'
 require 'dalli'
 
-#events = JSON.parse(open("https://www.tadl.org/mobile/export/events/formatted/json/all").read)['nodes'].map {|i| i['node']}
+cal = Selene.parse(open("https://www.kalkaskalibrary.org/events.ics").read)
+events = []
+cal['vcalendar'][0]['vevent'].each do |e|
+  event = {
+    :title => e['summary'],
+    :date => e['dtstart'][0],
+    :location => e['location'],
+    :body => e['description'].force_encoding("utf-8"),
+    :image  => e['attach'],
+  }
+  events.push(event)
+end
 
-events = Selene.parse(open("https://www.kalkaskalibrary.org/events.ics").read)
-#puts events
+puts events
 
 Rails.cache.write("events", events)
 

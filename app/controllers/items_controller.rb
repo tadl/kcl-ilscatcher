@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  require 'mechanize'
+  require 'open-uri'
   def details
   
   	record_id = params[:record]
@@ -73,7 +75,4 @@ class ItemsController < ApplicationController
   	total_copies = totals[1].gsub('total copies.','').strip rescue nil
   	return total_holds, total_copies
   end
-
-
-
 end
