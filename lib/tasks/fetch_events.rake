@@ -19,8 +19,6 @@ cal['vcalendar'][0]['vevent'].each do |e|
   events.push(event)
 end
 
-puts events
-
 Rails.cache.write("events", events)
 
 end
