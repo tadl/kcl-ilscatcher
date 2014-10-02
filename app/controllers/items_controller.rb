@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  require 'mechanize'
-  require 'open-uri'
+
   def details
   
   	record_id = params[:record]
