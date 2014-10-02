@@ -8,7 +8,7 @@ require 'dalli'
 cal = Selene.parse(open("https://www.kalkaskalibrary.org/events.ics").read)
 events = []
 cal['vcalendar'][0]['vevent'].each do |e|
-    unless e['summary'].nil?
+    unless e['date'].nil?
         event = {
         :title => e['summary'],
         :date => e['dtstart'][0].in_time_zone('Eastern Time (US & Canada)'),
