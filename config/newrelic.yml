@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: ilsCatcher2
+  app_name: kcl-ilscatcher
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
   # newrelic.com. This global switch is normally overridden for each
@@ -184,7 +184,7 @@ development:
   <<: *default_settings
   # Turn on communication to New Relic service in development mode
   monitor_mode: true
-  app_name: ilsCatcher2 (Development)
+  app_name: kcl-ilscatcher (Development)
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have
