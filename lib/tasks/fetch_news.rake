@@ -5,7 +5,8 @@ require 'open-uri'
 require 'memcachier'
 require 'dalli'
 
-news = JSON.parse(open("https://www.tadl.org/export/news/json").read)['nodes'].map {|i| i['node']}
+news = JSON.parse(open("https://www.kalkaskalibrary.org/wp-json/posts").read)
+
 Rails.cache.write("news", news)
 
 end
