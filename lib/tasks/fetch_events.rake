@@ -16,6 +16,7 @@ cal['vcalendar'][0]['vevent'].each do |e|
         :body => e['description'].force_encoding("utf-8"),
         :image  => e['attach'],
         :url => e['url'],
+        :uid => e['uid'].partition('-').first,
         }
         events.push(event)
     end
