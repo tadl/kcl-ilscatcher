@@ -18,8 +18,6 @@ gem 'dalli'
 
 gem 'newrelic_rpm'
 
-gem 'selene'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -5,21 +5,20 @@ require 'open-uri'
 require 'memcachier'
 require 'dalli'
 
-cal = Selene.parse(open("https://www.kalkaskalibrary.org/events.ics").read)
 events = []
-cal['vcalendar'][0]['vevent'].each do |e|
-    unless e['dtstart'][0] == ''
-        event = {
-        :title => e['summary'],
-        :date => e['dtstart'][0].in_time_zone('Eastern Time (US & Canada)'),
-        :location => e['location'],
+
+cal = Hash.from_xml(open("https://www.kalkaskalibrary.org/events/feed/").read)
+
+cal['rss']['channel']['item'].each do |e|
+    event = {
+        :title => e['title'],
+        :date => e['startDate'],
+        :image => e['postImage'],
+        :url => e['link'],
+        :uid => e['postId'],
         :body => e['description'].force_encoding("utf-8"),
-        :image  => e['attach'],
-        :url => e['url'],
-        :uid => e['uid'].partition('-').first,
-        }
-        events.push(event)
-    end
+    }
+    events.push(event)
 end
 
 Rails.cache.write("events", events)
